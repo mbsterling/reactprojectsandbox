@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "firebase": "^8.0.2",
     "object-to-array-convert": "^1.1.0",
