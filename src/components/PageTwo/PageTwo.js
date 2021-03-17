@@ -28,7 +28,6 @@ const PageTwo = (props) => {
     const [theTimeLog, getTheTimeLog] = useState([]);
 
     let theTimeLogList = [];
-    //test
     // let ref = Firebase.database().ref('/users');
     // var users = ref.child("users");  
     // ref.on("value", querySnapShot => {userList: querySnapShot.val()});
