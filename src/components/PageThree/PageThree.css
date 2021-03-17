@@ -1,0 +1,34 @@
+.PageThree {
+    text-align: center;
+  }
+  
+  .PageThree ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .PageThree li{
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .PageThree-logo {
+    animation: PageThree-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  
+  .PageThree-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .PageThree-title {
+    font-size: 1.5em;
+  }
+  
+  .PageThree-intro {
+    font-size: large;
+  }

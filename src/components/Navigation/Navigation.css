@@ -1,0 +1,24 @@
+
+.Navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: right;
+  }
+  
+  .Navigation li {
+    display: inline-block;
+    margin: 20px;
+  }
+
+  @media all and (min-width: 480px) {
+    .Navigation {
+      padding: 0px;
+    }
+  
+    .Navigation form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }

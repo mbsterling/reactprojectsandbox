@@ -1,0 +1,41 @@
+.SignUp {
+    text-align: center;
+  }
+
+.SignUp ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.SignUp li {
+  display: inline-block;
+  margin: 20px;
+}
+
+.SignUp a {
+  text-decoration: none;
+  color: black;
+}
+
+.SignUp input {
+    width: 100%;
+}
+
+.SignUp a:hover,
+.SignUp a:active {
+  color: red;
+}
+
+@media all and (min-width: 480px) {
+  .SignUp {
+    padding: 0px;
+  }
+
+  .SignUp form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}

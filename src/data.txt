@@ -1,0 +1,71 @@
+  
+  
+  
+    var studentInfo = ref.child("studentInfo");
+  studentInfo.push({
+    "StudentId": "12345671",
+    "StudentFirstName": "Mike",
+    "StudentLastName": "Sterling",
+    "StudentFullName": "Mike Sterling",
+    "SportID": "1",
+    "SemesterTotal": "00:00:00",
+    "WeekTotal": "00:00:00",
+    "CurrentTotal": "00:00:00",
+    "IsActive": "True",
+    "Classification": "Senior"
+  });
+
+    studentInfo.push({
+    "StudentId": "12345671",
+    "TimeIn": "10/30/2020 3:00:00 PM",
+    "TimeOut": "",
+    "TotalMinuts": "0"
+  });
+
+  studentInfo.push({
+    "StudentId": "12345672",
+    "TimeIn": "10/30/2020 8:00:00 AM",
+    "TimeOut": "10/30/2020 8:10:00 AM",
+    "TotalMinuts": "10"
+  });
+
+  studentInfo.push({
+    "StudentId": "12345673",
+    "TimeIn": "10/31/2020 8:00:00 AM",
+    "TimeOut": "10/31/2020 8:30:00 AM",
+    "TotalMinuts": "30"
+  });
+
+  studentInfo.push({
+    "StudentId": "12345673",
+    "TimeIn": "10/31/2020 9:00:00 AM",
+    "TimeOut": "10/31/2020 9:15:00 AM",
+    "TotalMinuts": "15"
+  });
+
+
+  studentInfo.push({
+    "StudentId": "12345672",
+    "StudentFirstName": "Rob",
+    "StudentLastName": "Connor",
+    "StudentFullName": "Rob Connor",
+    "SportID": "2",
+    "SemesterTotal": "00:00:00",
+    "WeekTotal": "00:00:00",
+    "CurrentTotal": "00:00:00",
+    "IsActive": "True",
+    "Classification": "Junior"
+  });
+
+  studentInfo.push({
+    "StudentId": "12345673",
+    "StudentFirstName": "Reggie",
+    "StudentLastName": "Hawkins",
+    "StudentFullName": "Reggin Hawkins",
+    "SportID": "3",
+    "SemesterTotal": "00:00:00",
+    "WeekTotal": "00:00:00",
+    "CurrentTotal": "00:00:00",
+    "IsActive": "True",
+    "Classification": "Sophmore"
+  });
