@@ -8,7 +8,7 @@ const TotalTime = (props) => {
 
     return (
         <div>
-            <p>00:30:00</p>
+            <p>00:40:00</p>
         </div>
     );
 }
