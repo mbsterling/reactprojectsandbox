@@ -21,18 +21,11 @@ import TotalTime from '../../components/TotalTime/TotalTime';
 
 const PageTwo = (props) => {
 
-    //const [rows, setRows] = useState([]);
     const authContext = useContext(AuthContext)
-    //console.log(authContext);
 
-    //const [theUsers, getTheUsers] = useState([]);
     const [theTimeLog, getTheTimeLog] = useState([]);
 
     let theTimeLogList = [];
-    //test more push
-    // let ref = Firebase.database().ref('/users');
-    // var users = ref.child("users");  
-    // ref.on("value", querySnapShot => {userList: querySnapShot.val()});
 
     useEffect(() => {
         let ref = Firebase.database().ref('/studentTime');
@@ -40,15 +33,8 @@ const PageTwo = (props) => {
 
         refQuery.on("value", studentTimeLog => {
             theTimeLogList = O2A(studentTimeLog);
-            //console.log(theUserList);
             getTheTimeLog(theTimeLogList);
         });
-
-        // ref.on("value", studentTimeLog => {
-        //     theTimeLogList = O2A(studentTimeLog);
-        //     //console.log(theUserList);
-        //     getTheTimeLog(theTimeLogList);
-        // });
 
         //https://stackoverflow.com/questions/48240734/how-to-query-in-firebase-in-react
         let userRef = Firebase.database().ref('/users');
@@ -78,6 +64,7 @@ const PageTwo = (props) => {
                         <TableRow>
                             <TableCell align="center">UUID</TableCell>
                             <TableCell align="center">Student ID</TableCell>
+                            <TableCell align="center">Student Name</TableCell>
                             <TableCell align="center">Time In</TableCell>
                             <TableCell align="center">Time Signed In</TableCell>
                             <TableCell align="center">Total Time</TableCell>
@@ -99,7 +86,19 @@ const PageTwo = (props) => {
                                     </NavLink>
                                 </TableCell>
                                 <TableCell align="center" component="th" scope="row">
-                                    {row.StudentId}
+                                    <NavLink
+                                        to={'/PageThree/' + row.StudentId}
+                                        exact
+                                        activeClassName="my-active"
+                                        activeStyle={{
+                                            color: '#fa923f',
+                                            textDecoration: 'underline'
+                                        }}>
+                                        {row.StudentId}
+                                    </NavLink>
+                                </TableCell>
+                                <TableCell align="center" component="th" scope="row">
+                                    {row.StudentName}
                                 </TableCell>
                                 <TableCell align="center">{row.TimeIn}</TableCell>
                                 <TableCell align="center">
