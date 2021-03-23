@@ -1,8 +1,7 @@
 import React, {
-    useState, useEffect,
-    useHistory, useContext
+    useState, useEffect, useContext
 } from 'react';
-import { withRouter, NavLink } from "react-router-dom";
+import { withRouter, NavLink, Link, useHistory } from "react-router-dom";
 import axios from 'axios';
 import './PageTwo.css';
 import { O2A } from 'object-to-array-convert';
@@ -18,10 +17,13 @@ import { AuthContext } from '../../containers/App/App';
 import Firebase from 'firebase';
 import Navigation from '../../components/Navigation';
 import TotalTime from '../../components/TotalTime/TotalTime';
+import CheckIcon from '@material-ui/icons/Check';
+
 
 const PageTwo = (props) => {
 
-    const authContext = useContext(AuthContext)
+    const authContext = useContext(AuthContext);
+    const history = useHistory();
 
     const [theTimeLog, getTheTimeLog] = useState([]);
 
@@ -35,7 +37,7 @@ const PageTwo = (props) => {
             theTimeLogList = O2A(studentTimeLog);
             getTheTimeLog(theTimeLogList);
         });
-
+        
         //https://stackoverflow.com/questions/48240734/how-to-query-in-firebase-in-react
         let userRef = Firebase.database().ref('/users');
         var userQuery = userRef.orderByChild("Email").equalTo(authContext.userEmail);
@@ -48,8 +50,12 @@ const PageTwo = (props) => {
                 }
             });
         });
-    }, []);
+    }, [window.location.href]);
 
+    const myRedirect = (stdId) => {
+        history.push('/PageTwo/:' + stdId);
+        //window.location.reload('/PageTwo/:' + stdId);
+    }
 
     return (
         <div>
@@ -62,18 +68,19 @@ const PageTwo = (props) => {
                 <Table className="PageTwo" aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="center">UUID</TableCell>
+                            {/* <TableCell align="center">UUID</TableCell> */}
                             <TableCell align="center">Student ID</TableCell>
                             <TableCell align="center">Student Name</TableCell>
                             <TableCell align="center">Time In</TableCell>
                             <TableCell align="center">Time Signed In</TableCell>
-                            <TableCell align="center">Total Time</TableCell>
+                            <TableCell align="center">Week Total</TableCell>
+                            <TableCell align="center">Sign Out</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {theTimeLog.map(row => (
                             <TableRow key={row.object_key}>
-                                <TableCell align="center">
+                                {/* <TableCell align="center">
                                     <NavLink
                                         to="/PageThree/:id"
                                         exact
@@ -84,7 +91,7 @@ const PageTwo = (props) => {
                                         }}>
                                         {row.object_key}
                                     </NavLink>
-                                </TableCell>
+                                </TableCell> */}
                                 <TableCell align="center" component="th" scope="row">
                                     <NavLink
                                         to={'/PageThree/' + row.StudentId}
@@ -105,6 +112,9 @@ const PageTwo = (props) => {
                                     <TotalTime timein={row.TimeIn} />
                                 </TableCell>
                                 <TableCell align="center">{row.TotalMinuts}</TableCell>
+                                <TableCell align="center">
+                                    <CheckIcon onClick={() => myRedirect(row.StudentId)}/>
+                                </TableCell>
                             </TableRow>
                         ))
                         }

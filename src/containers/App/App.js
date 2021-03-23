@@ -7,7 +7,7 @@ import PageThree from '../../components/PageThree/PageThree';
 import SignUp from '../../components/SignUp/SignUp';
 //import Navigation from '../../components/Navigation';
 
-import { withRouter, Route,  Switch} from "react-router-dom";
+import { withRouter, Route,  Switch, Redirect} from "react-router-dom";
 //import { withFirebase } from '../../components/Firebase';
 
 export const AuthContext = React.createContext({
@@ -65,7 +65,7 @@ const App = () => {
         </p>
         <Switch>
           <Route path="/" exact component={SignUp} />
-          <Route path="/PageTwo" exact component={PageTwo} />
+          <Route path="/PageTwo/:stdid?" component={PageTwo} />
           <Route path="/PageThree/:id" exact component={PageThree} />
         </Switch>
       </div>
