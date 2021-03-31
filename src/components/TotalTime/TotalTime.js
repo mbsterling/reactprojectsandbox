@@ -17,10 +17,11 @@ const TotalTime = (props) => {
         var differceBetweenTheDates = moment(now).diff(moment(timeIn), 'minutes');
         var d = Math.floor(differceBetweenTheDates / 1440);
         var remainingMinutes = differceBetweenTheDates % 1440;
-        var h = Math.floor(remainingMinutes / 60);
-        var m = remainingMinutes % 60;
+        var h = Math.floor(remainingMinutes / 60) < 10 ? 
+            "0" + Math.floor(remainingMinutes / 60) : Math.floor(remainingMinutes / 60);
+        var m = remainingMinutes % 60 < 10 ? "0" + remainingMinutes % 60 : remainingMinutes % 60;
         
-        console.log("00:" + h.toString() + ":" + (m<10?"0":"") + m.toString());
+        console.log("00:" + h.toString() + ":" + m.toString());
         setTotalTime(d.toString() + ":" + h.toString() + ":" + m.toString());
         
     }, []);
